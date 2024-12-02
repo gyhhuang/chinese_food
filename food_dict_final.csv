@@ -1,0 +1,209 @@
+dish_id,dish_hanzi,dish_english,dish_pinyin
+0,麻婆豆腐,Mapo Tofu,ma2 po2 dou4 fu3
+1,家常豆腐,Home style sauteed Tofu,jia1 chang2 dou4 fu3
+2,煎豆腐,Fried Tofu,jian1 dou4 fu3
+3,豆腐花,Bean curd,dou4 fu3 hua1
+4,臭豆腐,Stinky tofu,chou4 dou4 fu3
+5,酸辣土豆丝,Potato silk,suan1 la4 tu3 dou4 si1
+6,土豆泥,Pan fried potato,tu3 dou4 ni2
+7,香煎土豆,Pan fried potato,xiang1 jian1 tu3 dou4
+8,土豆焖豆角,Braised beans with potato,tu3 dou4 men4 dou4 jiao3
+9,地三鲜,"Fried Potato, Green Pepper & Eggplant",di4 san1 xian1
+10,薯条,French fries,shu3 tiao2
+11,鱼香茄子,Yu-Shiang Eggplant,yu2 xiang1 qie2 zi
+12,蒜泥茄子,Mashed garlic eggplant,suan4 ni2 qie2 zi
+13,肉末茄子,Eggplant with mince pork,rou4 mo4 qie2 zi
+14,辣白菜,Spicy cabbage,la4 bai2 cai4
+15,醋溜白菜,Sour cabbage,cu4 liu1 bai2 cai4
+16,上汤娃娃菜,Steamed Baby Cabbage,shang4 tang1 wa2 wa2 cai4
+17,手撕包菜,Shredded cabbage,shou3 si1 bao1 cai4
+18,蚝油生菜,Sauteed Lettuce in Oyster Sauce,hao2 you2 sheng1 cai4
+19,炒青菜,Saute vegetable,chao3 qing1 cai4
+20,炒空心菜,tumis kangkung,chao3 kong1 xin1 cai4
+21,蒜蓉油麦菜,Lettuce with smashed garlic,suan4 rong2 you2 mai4 cai4
+22,清炒菠菜,Sauteed spainch,qing1 chao3 bo1 cai4
+23,炒豆芽,Sauteed bean sprouts,chao3 dou4 ya2
+24,炒蚕豆,Sauteed broad beans,chao3 can2 dou4
+25,毛豆,Soybean,mao2 dou4
+26,蚝油西兰花,Broccoli with Oyster Sauce,hao2 you2 xi1 lan2 hua1
+27,香煎藕盒,Deep Fried lotus root,xiang1 jian1 ou3 he2
+28,莲藕,Lotus root,lian2 ou3
+29,凉拌西红柿,Tomato salad,liang2 ban4 xi1 hong2 shi4
+30,鸡鸭胗,Gizzard,ji1 ya1 zhen1
+31,凉拌木耳,Black Fungus in Vinegar Sauce,liang2 ban4 mu4 er3
+32,口水黄瓜,Cucumber in Sauce,kou3 shui3 huang2 gua1
+33,花生米,peanut,hua1 sheng1 mi3
+34,凉拌海带丝,Seaweed salad,liang2 ban4 hai3 dai4 si1
+35,拔丝山药,Chinese Yam in Hot Toffee,ba2 si1 shan1 yao4
+36,清炒山药,Fried Yam,qing1 chao3 shan1 yao4
+37,干煸豆角,Fried beans,gan4 bian1 dou4 jiao3
+38,蚝油杏鲍菇,Oyster mushroom,hao2 you2 xing4 bao4 gu1
+39,酿苦瓜,stuffed bitter melon,niang4 ku3 gua1
+40,炒苦瓜,sauteed bitter melon,chao3 ku3 gua1
+41,虎皮青椒,pepper with tiger skin,hu3 pi2 qing1 jiao1
+42,凉拌腐竹,Yuba salad,liang2 ban4 fu3 zhu2
+43,炒花菜,fried cauliflower,chao3 hua1 cai4
+44,松仁玉米,Sauteed Sweet Corn with Pine Nuts,song1 ren2 yu4 mi3
+45,香菇青菜,Sauted Chinese Greens with Mushrooms,xiang1 gu1 qing1 cai4
+46,椒盐蘑菇,Spiced mushroom,jiao1 yan2 mo2 gu1
+47,芹菜香干,Celery and tofu,qin2 cai4 xiang1 gan1
+48,西芹百合,Sauteed Lily Bulbs and Celery,xi1 qin2 bai3 he2
+49,韭菜炒香干,Leak and tofu,jiu3 cai4 chao3 xiang1 gan1
+50,西红柿炒鸡蛋,Scrambled egg with tomato,xi1 hong2 shi4 chao3 ji1 dan4
+51,韭菜炒鸡蛋,Scrambled Egg with Leek,jiu3 cai4 chao3 ji1 dan4
+52,黄瓜炒鸡蛋,Scrambled Egg with cucumber,huang2 gua1 chao3 ji1 dan4
+53,鸡蛋羹,Steamed egg custard,ji1 dan4 geng1
+54,猪肝,Pork liver,zhu1 gan1
+55,猪耳朵,Pig ears,zhu1 er3 duo3
+56,叉烧,roast pork,cha1 shao1
+57,粉蒸排骨,Steamed pork with rice powder,fen3 zheng1 pai2 gu3
+58,糖醋排骨,Sweet and sour spareribs,tang2 cu4 pai2 gu3
+59,海带炖排骨,Braised spareribs with kelp,hai3 dai4 dun4 pai2 gu3
+60,可乐鸡翅,Cola Chicken wings,ke3 le4 ji1 chi4
+61,泡椒凤爪,Chicken Feet with Pickled Peppers,pao4 jiao1 feng4 zhao3
+62,红烧鸡爪,Chicken Feet with black bean sauce,hong2 shao1 ji1 zhao3
+63,口水鸡,Steamed Chicken with Chili Sauce,kou3 shui3 ji1
+64,烤鸭烧鹅,Roast goose,kao3 ya1 shao1 e2
+65,白斩鸡,Boiled chicken,bai2 zhan3 ji1
+66,大盘鸡,Saute Spicy Chicken,da4 pan2 ji1
+67,香菇蒸鸡,Steamed Chicken with Mushroom,xiang1 gu1 zheng1 ji1
+68,黄焖鸡,chicken braised with brown sauce,huang2 men4 ji1
+69,豉油鸡,Soy sauce chicken,shi4 you2 ji1
+70,辣子鸡,Spicy Chicken,la4 zi ji1
+71,宫保鸡丁,Kung Pao Chicken,gong1 bao3 ji1 ding1
+72,三杯鸡,Stewed Chicken with Three Cups Sauce,san1 bei1 ji1
+73,鸡丝、鸡丝面,Shredded chicken,ji1 si1 、 ji1 si1 mian4
+74,炸鸡腿,Fried chicken drumsticks,zha4 ji1 tui3
+75,啤酒鸭,Beer duck,pi2 jiu3 ya1
+76,腰花,Scalloped pork or lamb kidneys,yao1 hua1
+77,红烧肉,Braised pork,hong2 shao1 rou4
+78,红烧牛肉,Braised beef,hong2 shao1 niu2 rou4
+79,酱牛肉,Beef Seasoned with Soy Sauce,jiang4 niu2 rou4
+80,西红柿牛腩,Sirloin tomatoes,xi1 hong2 shi4 niu2 nan3
+81,土豆炖牛腩,Stewed sirloin potatoes,tu3 dou4 dun4 niu2 nan3
+82,杭椒牛柳,Sauteed Beef Fillet with Hot Green Pepper,hang2 jiao1 niu2 liu3
+83,梅菜扣肉,Pork with salted vegetable,mei2 cai4 kou4 rou4
+84,回锅肉,Double cooked pork slices,hui2 guo1 rou4
+85,猪肉炖粉条,Braised Pork with Vermicelli,zhu1 rou4 dun4 fen3 tiao2
+86,水煮肉片,Boiled Shredded pork in chili oil,shui3 zhu3 rou4 pian4
+87,糖醋里脊,Fried Sweet and Sour Tenderloin,tang2 cu4 li3 ji2
+88,咕噜肉,Cripsy sweet & sour pork slices,gu1 lu1 rou4
+89,锅包肉,Pot bag meat,guo1 bao1 rou4
+90,农家小炒肉,Shredded Pork with Vegetables,nong2 jia1 xiao3 chao3 rou4
+91,培根金针菇卷,Tiger lily buds in Baconic,pei2 gen1 jin1 zhen1 gu1 juan3
+92,京酱肉丝,Sauteed Shredded Pork in Sweet Bean Sauce,jing1 jiang4 rou4 si1
+93,豆角肉丝,Shredded pork with bean,dou4 jiao3 rou4 si1
+94,酱焖猪蹄,Braised pig feet with soy sauce,jiang4 men4 zhu1 ti2
+95,肚丝,Tripe,du3 si1
+96,青椒肉丝,Shredded pork and green pepper,qing1 jiao1 rou4 si1
+97,鱼香肉丝,Yu-Shiang Shredded Pork,yu2 xiang1 rou4 si1
+98,木耳炒肉丝,Braised Fungus with pork slice,mu4 er3 chao3 rou4 si1
+99,木须肉,"Sauteed Sliced Pork,Eggs and Black Fungus",mu4 xu1 rou4
+100,莴笋肉丝,Lettuce shredded meat,wo1 sun3 rou4 si1
+101,蚂蚁上树,Sauteed Vermicelli with Spicy Minced Pork,ma3 yi3 shang4 shu4
+102,孜然羊肉,Fried Lamb with Cumin,zi1 ran2 yang2 rou4
+103,羊肉串,Lamb shashlik,yang2 rou4 chuan4
+104,葱爆羊肉,Sauteed Sliced Lamb with Scallion,cong1 bao4 yang2 rou4
+105,红烧狮子头,Stewed Pork Ball in Brown Sauce,hong2 shao1 shi1 zi tou2
+106,酸菜鱼,Boiled Fish with Picked Cabbage and Chili,suan1 cai4 yu2
+107,烤鱼,grilled fish,kao3 yu2
+108,糖醋鲤鱼,Sweet and sour fish,tang2 cu4 li3 yu2
+109,松鼠桂鱼,Sweet and Sour Mandarin Fish,song1 shu3 gui4 yu2
+110,红烧带鱼,Braised Hairtail in Brown Sauce,hong2 shao1 dai4 yu2
+111,剁椒鱼头,Steamed Fish Head with Diced Hot Red Peppers,duo4 jiao1 yu2 tou2
+112,水煮鱼,Fish Filets in Hot Chili Oil,shui3 zhu3 yu2
+113,清蒸鲈鱼,Steamed Perch,qing1 zheng1 lu2 yu2
+114,芝士虾球,Cheese Shrimp Meat,zhi1 shi4 xia1 qiu2
+115,虾仁西兰花,Shrimp broccoli,xia1 ren2 xi1 lan2 hua1
+116,油焖大虾,Braised Shrimp in chili oil,you2 men4 da4 xia1
+117,香辣虾,Spicy shrimp,xiang1 la4 xia1
+118,香辣小龙虾,Spicy crayfish,xiang1 la4 xiao3 long2 xia1
+119,水晶虾饺,Shrimp Duplings,shui3 jing1 xia1 jiao3
+120,蒜茸粉丝蒸虾,Steamed shrimp with garlic and vermicelli,suan4 rong1 fen3 si1 zheng1 xia1
+121,清炒虾仁,Sauteed Shrimp meat,qing1 chao3 xia1 ren2
+122,皮皮虾,Pipi shrimp,pi2 pi2 xia1
+123,扇贝,Scallop in Shell,shan4 bei4
+124,生蚝,Oysters,sheng1 hao2
+125,鱿鱼,squid,you2 yu2
+126,鲍鱼,Abalone,bao4 yu2
+127,螃蟹,Crab,pang2 xie4
+128,甲鱼,Turtle,jia3 yu2
+129,鳝鱼,eel,shan4 yu2
+130,扬州炒饭,Yangzhou fried rice,yang2 zhou1 chao3 fan4
+131,蛋包饭,Omelette,dan4 bao1 fan4
+132,小笼汤包,Steamed Bun Stuffed,xiao3 long2 tang1 bao1
+133,烧麦,Steamed Pork Dumplings,shao1 mai4
+134,家常早餐鸡蛋饼,egg omelet,jia1 chang2 zao3 can1 ji1 dan4 bing3
+135,土豆鸡蛋饼,Potato omelet,tu3 dou4 ji1 dan4 bing3
+136,鸡蛋灌饼,Egg pie cake,ji1 dan4 guan4 bing3
+137,卤蛋,Marinated Egg,lu3 dan4
+138,荷包蛋,Poached Egg,he2 bao1 dan4
+139,葱花手抓饼,Pine cake with Diced Scallion,cong1 hua1 shou3 zhua1 bing3
+140,芝麻烧饼,Sesame seed cake,zhi1 ma2 shao1 bing3
+141,肉夹馍,Chinese hamburger,rou4 jia1 mo2
+142,韭菜盒子,Leek box,jiu3 cai4 he2 zi
+143,南瓜紫薯馒头,steamed bun with purple potato and pumpkin,nan2 gua1 zi3 shu3 man2 tou
+144,馒头,steamed bun,man2 tou
+145,包子,Steamed stuffed bun,bao1 zi
+146,南瓜饼,Pumpkin pie,nan2 gua1 bing3
+147,披萨,Pizza,pi1 sa4
+148,油条,Deep-Fried Dough Sticks,you2 tiao2
+149,炸酱面,sauteed noodles with minced meat,zha2 jiang4 mian4
+150,重庆酸辣粉,Chongqing Hot and Sour Rice Noodles,chong2 qing4 suan1 la4 fen3
+151,凉拌凉面,Cold noodles,liang2 ban4 liang2 mian4
+152,西红柿鸡蛋面,Noodles with egg and tomato,xi1 hong2 shi4 ji1 dan4 mian4
+153,肉酱意大利面,spaghetti with meat sauce,rou4 jiang4 yi4 da4 li4 mian4
+154,茄汁拌面,Noodles with tomato sauce,jia1 zhi1 ban4 mian4
+155,凉皮,Cold Rice Noodles,liang2 pi2
+156,担担面,Sichuan noodles with peppery sauce,dan4 dan4 mian4
+157,臊子面,Qishan noodles,sao4 zi3 mian4
+158,炒面,fried noodles,chao3 mian4
+159,饺子,Dumplings,jiao3 zi
+160,玉米棒,Corn Cob,yu4 mi3 bang4
+161,红烧牛肉面,Braised beef noodle,hong2 shao1 niu2 rou4 mian4
+162,河粉,fried rice noodles,he2 fen3
+163,肠粉,Steamed vermicelli roll,chang2 fen3
+164,鲜肉小馄饨,Pork wonton,xian1 rou4 xiao3 hun2 tun2
+165,煎饺,Fried Dumplings,jian1 jiao3
+166,汤圆,Tang-yuan,tang1 yuan2
+167,小米粥,Millet congee,xiao3 mi3 zhou1
+168,红薯粥,Sweet potato porridge,hong2 shu3 zhou1
+169,海蛰,Jellyfish,hai3 zhe2
+170,皮蛋瘦肉粥,Minced Pork Congee with Preserved Egg,pi2 dan4 shou4 rou4 zhou1
+171,大米粥,Rice porridge,da4 mi3 zhou1
+172,米饭,Rice,mi3 fan4
+173,紫菜包饭,Laver rice,zi3 cai4 bao1 fan4
+174,石锅饭,Stone pot of rice,shi2 guo1 fan4
+175,乌鸡汤,Black bone chicken soup,wu1 ji1 tang1
+176,鲫鱼豆腐汤,Crucian and Bean Curd Soup,ji4 yu2 dou4 fu3 tang1
+177,疙瘩汤,Dough Drop and Assorted Vegetable Soup,ge1 da1 tang1
+178,酸辣汤,Hot and Sour Soup,suan1 la4 tang1
+179,萝卜排骨汤,Pork ribs soup with radish,luo2 bo pai2 gu3 tang1
+180,西红柿鸡蛋汤,Tomato and Egg Soup,xi1 hong2 shi4 ji1 dan4 tang1
+181,西湖牛肉羹,West Lake beef soup,xi1 hu2 niu2 rou4 geng1
+182,莲藕排骨汤,Lotus Root and Rib soup,lian2 ou3 pai2 gu3 tang1
+183,紫菜蛋花汤,Seaweed and Egg Soup,zi3 cai4 dan4 hua1 tang1
+184,海带豆腐汤,Seaweed tofu soup,hai3 dai4 dou4 fu3 tang1
+185,玉米排骨汤,Corn and sparerib soup,yu4 mi3 pai2 gu3 tang1
+186,菠菜猪肝汤,Spinach and pork liver soup,bo1 cai4 zhu1 gan1 tang1
+187,罗宋汤,Borsch,luo2 song4 tang1
+188,银耳汤,White fungus soup,yin2 er3 tang1
+189,冬瓜汤,White gourd soup,dong1 gua1 tang1
+190,酱汤,Miso soup,jiang4 tang1
+191,毛血旺,Duck Blood in Chili Sauce,mao2 xue4 wang4
+192,夫妻肺片,Pork Lungs in Chili Sauce,fu1 qi1 fei4 pian4
+193,麻辣香锅,Spicy pot,ma2 la4 xiang1 guo1
+194,黄金如意肉卷,Golden meat rolls,huang2 jin1 ru2 yi4 rou4 juan3
+195,蛋糕,Chiffon Cake,dan4 gao1
+196,蛋挞,Egg Tart,dan4 ta4
+197,面包,Bread,mian4 bao1
+198,牛角包,Croissant,niu2 jiao3 bao1
+199,吐司,toast,tu3 si1
+200,饼干,Biscuits,bing3 gan1
+201,曲奇饼干,cookies,qu1 qi2 bing3 gan1
+202,苏打饼干,Soda biscuit,su1 da2 bing3 gan1
+203,双皮奶,Double skin milk,shuang1 pi2 nai3
+204,冰激凌,ice cream,bing1 ji1 ling2
+205,鸡蛋布丁,Egg pudding,ji1 dan4 bu4 ding1
+206,冰糖雪梨,Sweet stewed snow pear,bing1 tang2 xue3 li2
+207,水果沙拉,Fruit salad,shui3 guo3 sha1 la4
