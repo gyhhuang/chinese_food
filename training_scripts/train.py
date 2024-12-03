@@ -1,4 +1,5 @@
 import argparse
+import os
 import torch
 import torchvision.models as models
 import torchvision.transforms as transforms
@@ -7,6 +8,28 @@ import torch.nn as nn
 import torch.optim as optim
 from food_dataset import FoodDataset
 from tqdm.auto import tqdm
+import wandb
+
+
+def save_checkpoint(model, optimizer, epoch, val_loss, val_accuracy, results_dir, best=False):
+    """
+    Save a checkpoint of the model.
+    """
+    if best:
+        checkpoint_path = os.path.join(results_dir, "best_model.pth")
+    else:
+        checkpoint_path = os.path.join(results_dir, f"model_epoch_{epoch}_val_loss_{val_loss:.4f}.pth")
+    torch.save({
+        'epoch': epoch,
+        'model_state_dict': model.state_dict(),
+        'optimizer_state_dict': optimizer.state_dict(),
+        'val_loss': val_loss,
+        'val_accuracy': val_accuracy
+    }, checkpoint_path)
+    if best:
+        print(f"Best model checkpoint saved: {checkpoint_path}")
+    else:
+        print(f"Checkpoint saved: {checkpoint_path}")
 
 
 def train(model, dataloader, criterion, optimizer, device, epoch, total_epochs):
@@ -30,6 +53,7 @@ def train(model, dataloader, criterion, optimizer, device, epoch, total_epochs):
         pbar.set_postfix({"Batch Loss": loss.item()})
 
     avg_loss = total_loss / len(dataloader)
+    wandb.log({"Train Loss": avg_loss, "Epoch": epoch})
     return avg_loss
 
 
@@ -58,6 +82,7 @@ def validate(model, dataloader, criterion, device, epoch, total_epochs):
 
     avg_loss = total_loss / len(dataloader)
     accuracy = 100 * correct / total
+    wandb.log({"Validation Loss": avg_loss, "Validation Accuracy": accuracy, "Epoch": epoch})
     return avg_loss, accuracy
 
 
@@ -66,10 +91,22 @@ def main():
     parser.add_argument("--root_dir", type=str, required=True, help="Path to the root directory of images.")
     parser.add_argument("--train_csv", type=str, required=True, help="Path to the training CSV file.")
     parser.add_argument("--val_csv", type=str, required=True, help="Path to the validation CSV file.")
+    parser.add_argument("--results_dir", type=str, required=True, help="Directory to save checkpoints.")
+    parser.add_argument("--wandb_key", type=str, default="", help="wandb API Key for logging.")
     parser.add_argument("--batch_size", type=int, default=32, help="Batch size for training and validation.")
     parser.add_argument("--epochs", type=int, default=10, help="Number of epochs for training.")
     parser.add_argument("--lr", type=float, default=0.0001, help="Learning rate for the optimizer.")
     args = parser.parse_args()
+
+    # wandb initialization
+    if args.wandb_key is None or args.wandb_key.strip() == '':
+        wandb.init(mode='disabled')
+    else:
+        wandb.login(key=args.wandb_key.strip())
+        wandb.init(project="haochiai", config=vars(args))
+
+    # Ensure results directory exists
+    os.makedirs(args.results_dir, exist_ok=True)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -104,6 +141,8 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
+    best_val_accuracy = 0.0
+
     for epoch in range(1, args.epochs + 1):
         train_loss = train(model, train_dataloader, criterion, optimizer, device, epoch, args.epochs)
         val_loss, val_accuracy = validate(model, val_dataloader, criterion, device, epoch, args.epochs)
@@ -112,6 +151,16 @@ def main():
               f"Train Loss: {train_loss:.4f}, "
               f"Val Loss: {val_loss:.4f}, "
               f"Val Accuracy: {val_accuracy:.2f}%")
+
+        # Save checkpoint every 10 epochs or when validation accuracy improves
+        if (epoch % 10) == 0:
+            save_checkpoint(model, optimizer, epoch, val_loss, val_accuracy, args.results_dir)
+        if val_accuracy > best_val_accuracy:
+            best_val_accuracy = val_accuracy
+            save_checkpoint(model, optimizer, epoch, val_loss, val_accuracy, args.results_dir, best=True)
+
+        # Log metrics to wandb
+        wandb.log({"Best Validation Accuracy": best_val_accuracy})
 
 
 if __name__ == "__main__":
