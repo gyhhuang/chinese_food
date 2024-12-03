@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ````
 cd training_scripts
 python train.py \
-  --root_dir ls ../data_scripts/dataset/ChineseFoodNetDataset/all/ \
+  --root_dir ../data_scripts/dataset/ChineseFoodNetDataset/all/ \
   --train_csv ../data_scripts/dataset/csv/train_data.csv \
   --val_csv ../data_scripts/dataset/csv/test_data.csv \
   --results_dir ../results \
