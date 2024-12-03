@@ -1,7 +1,6 @@
 import torch
 import torchvision.models as models
 import torchvision.transforms as transforms
-import torchvision.datasets as datasets
 from torch.utils.data import DataLoader
 import torch.nn as nn
 import torch.optim as optim
@@ -55,8 +54,8 @@ def validate(model, dataloader, criterion, device):
     accuracy = 100 * correct / total
     return avg_loss, accuracy
 
-def main():
 
+def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Load pretrained ResNet-18 model
@@ -68,7 +67,7 @@ def main():
 
     for name, param in model.named_parameters():
         if "layer4" in name or "fc" in name:
-            param.requires_grad = True 
+            param.requires_grad = True
         else:
             param.requires_grad = False
 
@@ -79,8 +78,8 @@ def main():
     ])
 
     root_dir = "images/all/"
-    train_path = "parsed_data/train_data.csv"
-    val_path = "parsed_data/test_data.csv"
+    train_path = "data_scripts/train_data.csv"
+    val_path = "data_scripts/test_data.csv"
 
     # Create datasets
     train_dataset = FoodDataset(csv_file=train_path, root_dir=root_dir, transform=transform)
@@ -98,10 +97,11 @@ def main():
         train_loss = train(model, train_dataloader, criterion, optimizer, device)
         val_loss, val_accuracy = validate(model, val_dataloader, criterion, device)
 
-        print(f"Epoch [{epoch+1}/{num_epochs}], "
+        print(f"Epoch [{epoch + 1}/{num_epochs}], "
               f"Train Loss: {train_loss:.4f}, "
               f"Val Loss: {val_loss:.4f}, "
               f"Val Accuracy: {val_accuracy:.2f}%")
+
 
 if __name__ == "__main__":
     main()

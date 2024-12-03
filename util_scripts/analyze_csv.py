@@ -1,15 +1,14 @@
 import pandas as pd
 
-train_data = pd.read_csv('haochi_ai/train_list.csv')
+train_data = pd.read_csv('../data_scripts/csv/train_data.csv')
 
 train_dict = dict(sorted(train_data['dish_id'].value_counts().to_dict().items()))
 
-id_to_food = pd.read_csv('haochi_ai/food_dict_final.csv')
+id_to_food = pd.read_csv('../data_scripts/csv/food_dict_final.csv')
 
 food_dict = {}
 
 for key in train_dict.keys():
-
     corresponding_row = id_to_food[id_to_food['dish_id'] == key]
     corresponding_food = corresponding_row['dish_english'].to_string(index=False)
 
@@ -29,9 +28,6 @@ for key in food_dict.keys():
 
 print('Above threshold:', above_threshold)
 print('Below threshold:', below_threshold)
-
-
-
 
 # train_data = pd.read_csv('haochi_ai/train_list.csv')
 # val_data = pd.read_csv('haochi_ai/val_list.csv')
@@ -59,5 +55,3 @@ print('Below threshold:', below_threshold)
 #         total_counts[key] = test_dict[key]
 
 # print(total_counts)
-
-
