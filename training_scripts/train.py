@@ -36,7 +36,7 @@ def train(model, dataloader, criterion, optimizer, device, epoch, total_epochs):
     model.train()
     total_loss = 0.0
 
-    pbar = tqdm(dataloader, desc=f"Training Epoch {epoch}/{total_epochs}", leave=False)
+    pbar = tqdm(dataloader, desc=f"Training Epoch {epoch}/{total_epochs}", leave=True)
     for images, labels in pbar:
         images, labels = images.to(device), labels.to(device)
 
@@ -111,7 +111,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Load pretrained ResNet-18 model
-    model = models.resnet18(pretrained=True)
+    model = models.resnet18()
     num_features = model.fc.in_features
 
     model.fc = nn.Linear(num_features, 208)  # Assuming 208 classes
