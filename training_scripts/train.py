@@ -122,9 +122,9 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Load pretrained ResNet-18 model
-    model = models.resnet18(pretrained=True)
+    # model = models.resnet18(pretrained=True)
+    model = models.resnet50(pretrained=True)
     num_features = model.fc.in_features
-
     model.fc = nn.Linear(num_features, 208)  # Assuming 208 classes
     model = model.to(device)
 
