@@ -125,7 +125,10 @@ def main():
             param.requires_grad = False
 
     transform = transforms.Compose([
-        transforms.Resize((224, 224)),
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomRotation(10),
+        transforms.RandomResizedCrop((224, 224), scale=(0.8, 1.0)),
+        transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
@@ -139,18 +142,20 @@ def main():
     val_dataloader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=8)
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=5, factor=0.5)
 
     best_val_accuracy = 0.0
 
     for epoch in range(1, args.epochs + 1):
         train_loss = train(model, train_dataloader, criterion, optimizer, device, epoch, args.epochs)
         val_loss, val_accuracy = validate(model, val_dataloader, criterion, device, epoch, args.epochs)
+        scheduler.step(val_loss)
 
-        print(f"Epoch [{epoch}/{args.epochs}] "
-              f"Train Loss: {train_loss:.4f}, "
-              f"Val Loss: {val_loss:.4f}, "
-              f"Val Accuracy: {val_accuracy:.2f}%")
+        print(f"\nEpoch [{epoch}/{args.epochs}] "
+              f"\nTrain Loss: {train_loss:.4f}, "
+              f"\nVal Loss: {val_loss:.4f}, "
+              f"\nVal Accuracy: {val_accuracy:.2f}%\n")
 
         # Save checkpoint every 10 epochs or when validation accuracy improves
         if (epoch % 10) == 0:
