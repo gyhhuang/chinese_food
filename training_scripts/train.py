@@ -35,6 +35,8 @@ def save_checkpoint(model, optimizer, epoch, val_loss, val_accuracy, results_dir
 def train(model, dataloader, criterion, optimizer, device, epoch, total_epochs):
     model.train()
     total_loss = 0.0
+    correct = 0
+    total = 0
 
     pbar = tqdm(dataloader, desc=f"Training Epoch {epoch}/{total_epochs}", leave=True)
     for images, labels in pbar:
@@ -50,11 +52,19 @@ def train(model, dataloader, criterion, optimizer, device, epoch, total_epochs):
         optimizer.step()
 
         total_loss += loss.item()
+
+        # Compute accuracy
+        _, predicted = torch.max(outputs, 1)
+        total += labels.size(0)
+        correct += (predicted == labels).sum().item()
+
         pbar.set_postfix({"Batch Loss": loss.item()})
 
     avg_loss = total_loss / len(dataloader)
-    wandb.log({"Train Loss": avg_loss, "Epoch": epoch})
-    return avg_loss
+    accuracy = 100 * correct / total
+
+    wandb.log({"Train Loss": avg_loss, "Train Accuracy": accuracy, "Epoch": epoch})
+    return avg_loss, accuracy
 
 
 def validate(model, dataloader, criterion, device, epoch, total_epochs):
@@ -82,6 +92,7 @@ def validate(model, dataloader, criterion, device, epoch, total_epochs):
 
     avg_loss = total_loss / len(dataloader)
     accuracy = 100 * correct / total
+
     wandb.log({"Validation Loss": avg_loss, "Validation Accuracy": accuracy, "Epoch": epoch})
     return avg_loss, accuracy
 
@@ -111,7 +122,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Load pretrained ResNet-18 model
-    model = models.resnet18()
+    model = models.resnet18(pretrained=True)
     num_features = model.fc.in_features
 
     model.fc = nn.Linear(num_features, 208)  # Assuming 208 classes
@@ -148,14 +159,13 @@ def main():
     best_val_accuracy = 0.0
 
     for epoch in range(1, args.epochs + 1):
-        train_loss = train(model, train_dataloader, criterion, optimizer, device, epoch, args.epochs)
+        train_loss, train_accuracy = train(model, train_dataloader, criterion, optimizer, device, epoch, args.epochs)
         val_loss, val_accuracy = validate(model, val_dataloader, criterion, device, epoch, args.epochs)
         scheduler.step(val_loss)
 
         print(f"\nEpoch [{epoch}/{args.epochs}] "
-              f"\nTrain Loss: {train_loss:.4f}, "
-              f"\nVal Loss: {val_loss:.4f}, "
-              f"\nVal Accuracy: {val_accuracy:.2f}%\n")
+              f"\nTrain Loss: {train_loss:.4f}, Train Accuracy: {train_accuracy:.2f}%"
+              f"\nVal Loss: {val_loss:.4f}, Val Accuracy: {val_accuracy:.2f}%\n")
 
         # Save checkpoint every 10 epochs or when validation accuracy improves
         if (epoch % 10) == 0:
