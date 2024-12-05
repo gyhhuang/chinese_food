@@ -125,7 +125,10 @@ def main():
     # model = models.resnet18(pretrained=True)
     model = models.resnet50(pretrained=True)
     num_features = model.fc.in_features
-    model.fc = nn.Linear(num_features, 208)  # Assuming 208 classes
+    model.fc = nn.Sequential(
+        nn.Dropout(0.5),  # Dropout with 50%
+        nn.Linear(model.fc.in_features, 208)
+    )
     model = model.to(device)
 
     # Freeze layers except layer4 and fc
@@ -153,7 +156,7 @@ def main():
     val_dataloader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=8)
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
+    optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-3)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=5, factor=0.5)
 
     best_val_accuracy = 0.0
