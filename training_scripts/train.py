@@ -125,10 +125,7 @@ def main():
     # model = models.resnet18(pretrained=True)
     model = models.resnet50(pretrained=True)
     num_features = model.fc.in_features
-    model.fc = nn.Sequential(
-        nn.Dropout(0.5),  # Dropout with 50%
-        nn.Linear(model.fc.in_features, 208)
-    )
+    model.fc = nn.Linear(model.fc.in_features, 208)
     model = model.to(device)
 
     # Freeze layers except layer4 and fc
