@@ -1,6 +1,5 @@
 import os
 from PIL import Image
-import pillow_avif
 
 input_dir = "test_data"
 output_dir = "real_world_set2"
