@@ -42,14 +42,15 @@ def create_food_log(prediction, food_data):
     pinyin_text = food_info["pinyin"]
     english = food_info["english"]
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    sanitized_english = english.replace(' ', '_')
 
     # Create a subdirectory for this food item
-    food_dir = os.path.join(FOOD_MENU_DIR, f"{prediction}_{english}")
+    food_dir = os.path.join(FOOD_MENU_DIR, f"{prediction}_{sanitized_english}")
     os.makedirs(food_dir, exist_ok=True)
 
     # Generate audio files
-    chinese_audio_path = os.path.join(food_dir, f"{english}_chinese.mp3")
-    english_audio_path = os.path.join(food_dir, f"{english}_english.mp3")
+    chinese_audio_path = os.path.join(food_dir, f"{sanitized_english}_chinese.mp3")
+    english_audio_path = os.path.join(food_dir, f"{sanitized_english}_english.mp3")
     generate_audio(chinese, lang="zh", filepath=chinese_audio_path)
     generate_audio(english, lang="en", filepath=english_audio_path)
 
@@ -67,7 +68,7 @@ def create_food_log(prediction, food_data):
     }
 
     # Save the JSON object to a file
-    json_path = os.path.join(food_dir, f"{prediction}_{english}_data.json")
+    json_path = os.path.join(food_dir, f"{prediction}_{sanitized_english}_data.json")
     with open(json_path, "w", encoding="utf-8") as json_file:
         json.dump(food_item, json_file, indent=4, ensure_ascii=False)
 
@@ -76,10 +77,10 @@ def create_food_log(prediction, food_data):
 
 # Example usage
 if __name__ == "__main__":
-    csv_file_path = "food_list.csv"
+    csv_file_path = "data_scripts/csv/food_dict_final.csv"
     food_data_csv = load_food_data(csv_file_path)
 
-    TEST_INPUT = "4"
+    TEST_INPUT = "56"
     try:
         food_log = create_food_log(TEST_INPUT, food_data_csv)
         print(f"Food log created successfully: {json.dumps(food_log, indent=4, ensure_ascii=False)}")
