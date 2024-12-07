@@ -1,10 +1,8 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
 import numpy as np
-
+import pandas as pd
 
 ###### PARAMETERS ######
-data_path = 'haochi_ai/parsed_data/test_data.csv'
+data_path = 'haochi_ai/data_scripts/test_data.csv'
 id_to_food_path = 'haochi_ai/food_dict_final.csv'
 ########################
 

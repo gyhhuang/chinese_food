@@ -1,9 +1,9 @@
 import os
 import pandas as pd
-from PIL import Image
 import torch
+from PIL import Image
 from torch.utils.data import Dataset
-from torchvision import transforms
+
 
 class FoodDataset(Dataset):
     def __init__(self, csv_file, root_dir, transform=None):
@@ -25,7 +25,7 @@ class FoodDataset(Dataset):
             idx = idx.tolist()
 
         img_path = os.path.join(self.root_dir, self.data.iloc[idx, 0])
-        image = Image.open(img_path).convert("RGB") 
+        image = Image.open(img_path).convert("RGB")
         label = int(self.data.iloc[idx, 1])
 
         if self.transform:
