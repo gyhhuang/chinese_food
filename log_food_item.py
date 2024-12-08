@@ -48,6 +48,10 @@ def create_food_log(prediction, food_data):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     sanitized_english = english.replace(' ', '_')
 
+    print(f"Detected {english}. Is this correct? (Y/N) ")
+    if input() == "N":
+        raise ValueError(f"Incorrect prediction... Try Again.")
+
     # Create a subdirectory for this food item
     food_dir = os.path.join(FOOD_MENU_DIR, f"{prediction}_{sanitized_english}")
     os.makedirs(food_dir, exist_ok=True)
