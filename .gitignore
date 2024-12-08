@@ -169,3 +169,4 @@ cython_debug/
 images/all/
 data_scripts/dataset/*
 food_menu
+*.pth
