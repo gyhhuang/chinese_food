@@ -1,13 +1,11 @@
 import os
-
-import numpy as np
 import torch
 import torch.nn as nn
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 from torchvision import models
 from log_food_item import load_food_data
-from test_food_dataset import TestFoodDataset
+from food_dataset import TestFoodDataset
 
 # ANSI Escape Codes for color-coding results
 RED = '\033[91m'
