@@ -22,7 +22,7 @@ def load_resnet_model(model_path, num_classes):
     model = models.resnet50()
     num_features = model.fc.in_features
     model.fc = nn.Linear(num_features, num_classes)
-    checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
+    checkpoint = torch.load(model_path, map_location=torch.device('cpu'), weights_only=True)
     model.load_state_dict(checkpoint['model_state_dict'])
     model.eval()
     return model

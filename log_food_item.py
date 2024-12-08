@@ -1,3 +1,4 @@
+import argparse
 import csv
 import json
 import os
@@ -101,16 +102,19 @@ def predict_food(model, image_path, transform, food_data_csv):
 
 # Example usage
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Predict the food item from an image.")
+    parser.add_argument("image_path", type=str, help="Path to the input image.")
+    args = parser.parse_args()
+
     csv_file_path = "data_scripts/csv/food_dict_final.csv"
     model_path = "data_scripts/rw_test_set/best_model.pth"
-    test_image_path = "data_scripts/rw_test_set/images/mapotofu.jpg"
 
     food_data_csv = load_food_data(csv_file_path)
     model = load_resnet_model(model_path, num_classes=208)
     transform = get_transforms()
 
     try:
-        food_log = predict_food(model, test_image_path, transform, food_data_csv)
+        food_log = predict_food(model, args.image_path, transform, food_data_csv)
         print(f"Food log created successfully: {json.dumps(food_log, indent=4, ensure_ascii=False)}")
     except ValueError as e:
         print(e)
