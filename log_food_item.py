@@ -1,8 +1,11 @@
-import os
-import json
-from gtts import gTTS
-from datetime import datetime
 import csv
+import json
+import os
+from datetime import datetime
+import torch
+from PIL import Image
+from gtts import gTTS
+from util_scripts.resnet import load_resnet_model, get_transforms
 
 FOOD_MENU_DIR = "food_menu"
 os.makedirs(FOOD_MENU_DIR, exist_ok=True)
@@ -75,14 +78,39 @@ def create_food_log(prediction, food_data):
     return food_item
 
 
+def predict_food(model, image_path, transform, food_data_csv):
+    """
+    Predicts the food item from the image and returns its log.
+    """
+    image = Image.open(image_path).convert("RGB")
+    image = transform(image).unsqueeze(0)  # Add batch dimension
+
+    # Perform prediction
+    model.eval()
+    with torch.no_grad():
+        output = model(image)
+        predicted_class = torch.argmax(output, dim=1).item()
+
+    # Create the food log using the predicted class
+    predicted_class_str = str(predicted_class)
+    if predicted_class_str in food_data_csv:
+        return create_food_log(predicted_class_str, food_data_csv)
+    else:
+        raise ValueError(f"Predicted class {predicted_class} not found in the food dictionary.")
+
+
 # Example usage
 if __name__ == "__main__":
     csv_file_path = "data_scripts/csv/food_dict_final.csv"
-    food_data_csv = load_food_data(csv_file_path)
+    model_path = "data_scripts/rw_test_set/best_model.pth"
+    test_image_path = "data_scripts/rw_test_set/images/mapotofu.jpg"
 
-    TEST_INPUT = "56"
+    food_data_csv = load_food_data(csv_file_path)
+    model = load_resnet_model(model_path, num_classes=208)
+    transform = get_transforms()
+
     try:
-        food_log = create_food_log(TEST_INPUT, food_data_csv)
+        food_log = predict_food(model, test_image_path, transform, food_data_csv)
         print(f"Food log created successfully: {json.dumps(food_log, indent=4, ensure_ascii=False)}")
     except ValueError as e:
         print(e)
